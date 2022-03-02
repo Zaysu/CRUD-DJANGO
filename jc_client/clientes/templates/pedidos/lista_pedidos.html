@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+    {% block title %}
+    Zaysu - Listar Pedidos
+    {% endblock title %}
+
+
+    {% block content %}
+        <table class="table table-dark">
+            <thead>
+                <th scope="col">Cliente</th>
+                <th scope="col">Data do pedido</th>
+                <th scope="col">Status</th>
+                <th scope="col">Ações</th>
+            </thead>
+            <tbody>
+                {% for i in pedidos %}
+                <tr>
+                    <td scope="row"><a href="{% url 'listar_pedido_id' i.id %}">{{i.cliente.nome}}</a></td>
+                    <td scope="row">{{i.data_pedido | date:"d M Y" }}</td>
+                    <td scope="row">{{i.status}}</td>
+                    <td scope="row">
+                        <a href="{% url 'editar_pedido' i.id %}"> EDITAR  </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'cadastrar_pedido' %}"><button class="btn btn-dark">Cadastrar</button></a>
+    {% endblock content %}

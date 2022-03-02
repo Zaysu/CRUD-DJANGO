@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+
+{% block title %}
+    Zaysu - Cadastrar clients
+{% endblock title %}
+
+
+    {% block content %}
+<h1>Formulário</h1><br><br>
+
+<form method="post">
+    {% csrf_token %}
+
+        {{ form_cliente.nome.errors }}
+        <label>Nome</label><br>
+        {{ form_cliente.nome |addclass:'form-control' }}
+        <br><br><br>
+
+        {{ form_cliente.sobrenome.errors }}
+        <label>Sobrenome</label><br>
+        {{ form_cliente.sobrenome |addclass:'form-control' }}
+        <br><br><br>
+
+        {{ form_cliente.sexo.errors }}
+        <label>Sexo</label><br>
+        {{ form_cliente.sexo |addclass:'form-control' }}
+        <br><br><br>
+
+
+
+        {{ form_cliente.data_nascimento.errors }}
+        <label>Data de Nascimento</label><br>
+        {{ form_cliente.data_nascimento |addclass:'form-control' }}
+        <br><br><br>
+
+
+
+        {{ form_cliente.email.errors }}
+        <label>email</label><br>
+        {{ form_cliente.email |addclass:'form-control' }}
+        <br><br><br>
+
+
+
+        {{ form_cliente.profissao.errors }}
+        <label>Profissão</label><br>
+        {{ form_cliente.profissao  |addclass:'form-control'}}
+        <br><br><br>
+
+        {{  form_endereco.rua.errors }}
+        <label>Rua</label><br>
+        {{ form_endereco.rua |addclass:'form-control'}}
+        <br><br><br>
+
+        {{  form_endereco.numero.errors }}
+        <label>numero</label><br>
+        {{ form_endereco.numero |addclass:'form-control'}}
+        <br><br><br>
+
+        {{  form_endereco.complemento.errors }}
+        <label>complemento</label><br>
+        {{ form_endereco.complemento |addclass:'form-control'}}
+        <br><br><br>
+
+        {{  form_endereco.bairro.errors }}
+        <label>bairro</label><br>
+        {{ form_endereco.bairro |addclass:'form-control'}}
+        <br><br><br>
+
+        {{  form_endereco.cidade.errors }}
+        <label>cidade</label><br>
+        {{ form_endereco.cidade |addclass:'form-control'}}
+        <br><br><br>
+
+        {{  form_endereco.pais.errors }}
+        <label>pais</label><br>
+        {{ form_endereco.pais |addclass:'form-control'}}
+        <br><br><br>
+
+        <input type="submit" class="btn btn-dark" name="Cadastrar">
+
+</form><br>
+    <a href="{% url 'listar_clientes' %}"><button class="btn btn-dark">Verificar Lista</button></a>
+{% endblock content %}form_cliente

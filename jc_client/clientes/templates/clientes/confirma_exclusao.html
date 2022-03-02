@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+    {% block title %}
+    Zaysu - Exclusao
+    {% endblock title %}
+    {% block content %}
+        <div class="card">
+            <div class="card-header">
+                 Certeza que deseja excluir?
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">nome: {{cliente.nome}}  </h5>
+                <h5 class="card-title">sexo: {{cliente.sexo}}  </h5>
+                <h5 class="card-title">Data de nascimento: {{cliente.data_nascimento}}  </h5>
+                <h5 class="card-title">Email: {{cliente.email}}  </h5>
+                <h5 class="card-title">profissão: {{cliente.profissao}}  </h5>
+                <form method="post">
+                    {% csrf_token %}
+                    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary"> Voltar </a>
+                    <button class="btn btn-danger" type="submit"> Remover </button>
+                </form>
+
+            </div>
+        </div><br><br>
+        <a href="{% url 'cadastrar_cliente' %}"><button class="btn btn-dark">Cadastrar</button></a><br><br>
+        <a href="{% url 'listar_clientes' %}"><button class="btn btn-dark">Verificar Lista</button></a>
+    {% endblock content %}
